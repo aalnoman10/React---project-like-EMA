@@ -1,10 +1,17 @@
 import React from 'react';
-
+import './Product.css';
 const Product = (props) => {
-    const { name } = props.product
+    const { name, img, seller, price, ratingsCount, ratings } = props.product;
     return (
-        <div>
-            {name}
+        <div className='product'>
+            <img src={img} alt="" />
+            <div className='product-info'>
+                <h6>{name}</h6>
+                <p> Market place {seller}</p>
+                <p className='price'>Price ${price}</p>
+                <p>ratings {ratings} of {ratingsCount}</p>
+            </div>
+            <button>Add to Cart</button>
         </div>
     );
 };
