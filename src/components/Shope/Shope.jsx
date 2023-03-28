@@ -10,17 +10,29 @@ const Shope = () => {
             .then(data => setProducts(data))
     }, []);
 
+    const [carts, setCarts] = useState([]);
+
+    const getProduct = (product) => {
+        const newProduct = [...carts, product];
+        setCarts(newProduct)
+    }
+
     return (
         <div className='Shope-container'>
             <div className='product-container'>
                 {
-                    products.slice(0, 6).map(product => <Product
+                    products.map(product => <Product
                         product={product}
+                        func={getProduct}
                         key={product.id}
                     ></Product>)
                 }
             </div>
-            <div className='cart-container'></div>
+
+            <div className='cart-container'>
+                <h3>cart Summary</h3>
+                <p>cart {carts.length}</p>
+            </div>
         </div>
     );
 };

@@ -10,3 +10,8 @@
     padding: 10px;
     position: relative;
 }
+
+.cart-container {
+    background-color: rgb(213, 159, 120);
+    padding: 10px;
+}
